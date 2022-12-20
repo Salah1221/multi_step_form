@@ -1,0 +1,191 @@
+:root {
+  --marin-blue: hsl(213, 96%, 18%);
+  --purplish-blue: hsl(243, 100%, 62%);
+  --pastel-blue: hsl(228, 100%, 84%);
+  --light-blue: hsl(206, 94%, 87%);
+  --strawberry-red: hsl(354, 84%, 57%);
+  --cool-gray: hsl(231, 11%, 63%);
+  --light-gray: hsl(229, 24%, 87%);
+  --magnolia: hsl(217, 100%, 97%);
+  --alabaster: hsl(231, 100%, 99%);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+input,
+button,
+label {
+  font: inherit;
+  display: block;
+}
+
+input {
+  width: 100%;
+  font-weight: 500;
+  border-radius: 7.5px;
+  padding: 15px;
+  border: 1px solid var(--light-gray);
+  margin-bottom: 20px;
+  accent-color: var(--marin-blue);
+}
+
+input:focus {
+  outline: 0;
+  border: 1px solid var(--marin-blue);
+}
+
+input::placeholder {
+  color: hsl(231, 6%, 43%);
+}
+
+label {
+  color: var(--marin-blue);
+  margin-bottom: 7px;
+  font-size: 14px;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  background-color: var(--magnolia);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+h1 {
+  color: var(--marin-blue);
+  margin-bottom: 10px;
+}
+
+p {
+  color: var(--cool-gray);
+  margin-bottom: 35px;
+}
+
+.App {
+  display: flex;
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.012),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.018),
+    100px 100px 80px rgba(0, 0, 0, 0.03);
+}
+
+.sidebar {
+  height: 568px;
+  width: 274px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  gap: 30px;
+  background-image: url("./assets/images/bg-sidebar-desktop.svg");
+}
+
+.sidebar a {
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.sidebar .nb {
+  height: 32.5px;
+  width: 32.5px;
+  display: grid;
+  place-items: center;
+  border: 1px solid white;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 15px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.sidebar .active .nb {
+  background-color: var(--light-blue);
+  border-color: var(--light-blue);
+  color: var(--marin-blue);
+}
+
+.sidebar .text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar .step {
+  color: var(--light-gray);
+  font-size: 12px;
+}
+
+.sidebar .info {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.sidebar a:not(.active):hover .nb {
+  background-color: rgb(255 255 255 / 0.2);
+}
+
+.container {
+  position: relative;
+  padding: 50px 85px 30px 100px;
+  max-width: 642px;
+}
+
+.next {
+  padding: 0.85em 1.5em;
+  display: inline-block;
+  background-color: var(--marin-blue);
+  color: white;
+  border-radius: 7.5px;
+  transition: background-color 0.3s;
+  position: absolute;
+  bottom: 15px;
+  right: 85px;
+}
+
+.next:hover {
+  background-color: #174a8a;
+}
+
+/* start Font Faces */
+@font-face {
+  font-family: "Ubuntu";
+  src: url("./assets/fonts/Ubuntu-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("./assets/fonts/Ubuntu-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("./assets/fonts/Ubuntu-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+/* end Font Faces */
