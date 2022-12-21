@@ -40,7 +40,7 @@ input {
 
 input:focus {
   outline: 0;
-  border: 1px solid var(--marin-blue);
+  border: 1px solid var(--purplish-blue);
 }
 
 input::placeholder {
@@ -149,24 +149,147 @@ p {
 
 .container {
   position: relative;
-  padding: 50px 85px 30px 100px;
-  max-width: 642px;
+  padding: 40px 85px 30px 100px;
+  width: 642px;
+  background-color: white;
+  border-radius: inherit;
+}
+
+.nav-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+  padding: 15px 85px 15px 100px;
 }
 
 .next {
   padding: 0.85em 1.5em;
   display: inline-block;
+  border-radius: 7.5px;
   background-color: var(--marin-blue);
   color: white;
-  border-radius: 7.5px;
   transition: background-color 0.3s;
-  position: absolute;
-  bottom: 15px;
-  right: 85px;
+}
+
+.back {
+  color: var(--cool-gray);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.back:hover {
+  color: var(--marin-blue);
 }
 
 .next:hover {
   background-color: #174a8a;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  border: 1px solid var(--light-gray);
+  flex-grow: 1;
+  padding: 20px 15px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.card.active {
+  border-color: var(--purplish-blue);
+  background-color: #f8f9fe;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.plan-name {
+  font-size: 18px;
+  color: var(--marin-blue);
+  font-weight: 500;
+}
+
+.price {
+  color: var(--cool-gray);
+}
+
+.additional {
+  color: var(--marin-blue);
+  font-size: 13px;
+}
+
+@media (max-width: 950px) {
+  .App {
+    padding: 0;
+  }
+  .sidebar {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    width: auto;
+    height: auto;
+    inset: 0 0 auto 0;
+    aspect-ratio: 375 / 172;
+    background-image: url("./assets/images/bg-sidebar-mobile.svg");
+    background-size: cover;
+    overflow: hidden;
+    border-radius: 0;
+    z-index: 0;
+  }
+  .sidebar .text {
+    display: none;
+  }
+  .container {
+    position: static;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 720px) {
+  h1 {
+    font-size: 25px;
+  }
+  .App {
+    margin-inline: 20px;
+    border-radius: 10px;
+    margin-top: -65px;
+  }
+  .container {
+    width: 100%;
+    padding: 30px;
+  }
+  .sidebar {
+    gap: 15px;
+    padding-top: 30px;
+  }
+  input {
+    border-radius: 5px;
+    padding: 10px;
+  }
+  input:last-child {
+    margin: 0;
+  }
+  .next {
+    border-radius: 5px;
+  }
+  .nav-btns {
+    padding: 20px;
+  }
 }
 
 /* start Font Faces */
