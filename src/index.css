@@ -7,7 +7,8 @@
   --cool-gray: hsl(231, 11%, 63%);
   --light-gray: hsl(229, 24%, 87%);
   --magnolia: hsl(217, 100%, 97%);
-  --alabaster: hsl(231, 100%, 99%);
+  --alabaster: hsl(228, 100%, 99%);
+  --hover-color: #f8f9fe;
 }
 
 *,
@@ -174,12 +175,14 @@ p {
   background-color: var(--marin-blue);
   color: white;
   transition: background-color 0.3s;
+  cursor: pointer;
 }
 
 .back {
   color: var(--cool-gray);
   font-weight: 500;
   transition: color 0.3s;
+  cursor: pointer;
 }
 
 .back:hover {
@@ -193,6 +196,7 @@ p {
 .cards {
   display: flex;
   gap: 20px;
+  margin-bottom: 30px;
 }
 
 .card {
@@ -204,11 +208,16 @@ p {
   padding: 20px 15px;
   border-radius: 7px;
   cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
 .card.active {
   border-color: var(--purplish-blue);
-  background-color: #f8f9fe;
+  background-color: var(--hover-color);
+}
+
+.card:hover:not(.active) {
+  background-color: var(--hover-color);
 }
 
 .content {
@@ -218,18 +227,66 @@ p {
 }
 
 .plan-name {
-  font-size: 18px;
   color: var(--marin-blue);
   font-weight: 500;
 }
 
 .price {
   color: var(--cool-gray);
+  font-size: 14px;
 }
 
 .additional {
   color: var(--marin-blue);
-  font-size: 13px;
+  font-size: 12px;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: var(--hover-color);
+  border-radius: 7px;
+  padding: 15px;
+}
+
+.toggle-container .monthly,
+.toggle-container .yearly {
+  font-size: 15px;
+  color: var(--cool-gray);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.toggle-container .monthly.active,
+.toggle-container .yearly.active {
+  color: var(--marin-blue);
+}
+
+.toggle {
+  width: 40px;
+  height: 20px;
+  background-color: var(--marin-blue);
+  border-radius: 9999px;
+  position: relative;
+  cursor: pointer;
+}
+
+.switch {
+  position: absolute;
+  background-color: white;
+  top: 4px;
+  right: 4px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  transform: translateX(-20px);
+  transition: transform 0.3s;
+}
+
+.switch.yearly {
+  transform: translateX(0);
 }
 
 @media (max-width: 950px) {

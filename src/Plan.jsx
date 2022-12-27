@@ -33,6 +33,13 @@ const Plan = () => {
           </div>
         </div>
       </div>
+      <div className="toggle-container">
+        <div className="monthly">Monthly</div>
+        <div className="toggle">
+          <div className="switch yearly"></div>
+        </div>
+        <div className="yearly active">Yearly</div>
+      </div>
     </div>
   );
 };
