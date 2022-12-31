@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import Addons from "./Addons";
 import Info from "./Info";
 import Plan from "./Plan";
 import Sidebar from "./Sidebar";
@@ -34,7 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Info />} />
           <Route path="/plan" element={<Plan />} />
-          <Route path="/addons" element={<Info />} />
+          <Route path="/addons" element={<Addons />} />
           <Route path="/summary" element={<Info />} />
         </Routes>
         <div className="nav-btns">
