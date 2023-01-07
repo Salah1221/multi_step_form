@@ -6,7 +6,8 @@ import Plan from "./Plan";
 import Sidebar from "./Sidebar";
 
 function App() {
-  const [index, setIndex] = useState(0);
+  const paths = ["/", "/plan", "/addons", "/summary"];
+  const [index, setIndex] = useState(paths.indexOf(window.location.pathname));
   const heading = [
     {
       header: "Personal info",
@@ -27,10 +28,11 @@ function App() {
   ];
   const [isMonthly, setIsMonthly] = useState(true);
   const [plan, setPlan] = useState(0);
+  const [addons, setAddons] = useState([false, false, false]);
 
   return (
     <div className="App">
-      <Sidebar setIndex={setIndex} />
+      <Sidebar index={index} setIndex={setIndex} />
       <div className="container">
         <h1>{heading[index].header}</h1>
         <p>{heading[index].subhead}</p>
@@ -47,7 +49,10 @@ function App() {
               />
             }
           />
-          <Route path="/addons" element={<Addons />} />
+          <Route
+            path="/addons"
+            element={<Addons addons={addons} setAddons={setAddons} />}
+          />
           <Route path="/summary" element={<Info />} />
         </Routes>
         <div className="nav-btns">

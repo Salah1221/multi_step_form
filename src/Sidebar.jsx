@@ -1,23 +1,16 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Sidebar = ({ setIndex }) => {
-  const [flags, setFlags] = useState([true, false, false, false]);
+const Sidebar = ({ index, setIndex }) => {
   const stepName = ["Your Info", "Select Plan", "Add-ons", "Summary"];
-  const paths = ["", "plan", "addons", "summary"];
-  const handleClick = (i) => {
-    let aux = [false, false, false, false];
-    aux[i] = true;
-    setFlags(aux);
-    setIndex(i);
-  };
+  const paths = ["/", "/plan", "/addons", "/summary"];
+  const handleClick = (i) => setIndex(i);
 
   return (
     <div className="sidebar">
       {stepName.map((stepname, i) => (
         <Link
-          to={"/" + paths[i]}
-          className={flags[i] ? "active" : ""}
+          to={paths[i]}
+          className={index === i ? "active" : ""}
           onClick={() => handleClick(i)}
         >
           <div className="nb">{i + 1}</div>

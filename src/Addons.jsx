@@ -1,4 +1,10 @@
-const Addons = () => {
+const Addons = ({ addons, setAddons }) => {
+  const handleClick = (e, key) => {
+    let aux = addons;
+    aux[key] = !aux[key];
+    setAddons(aux);
+  };
+
   return (
     <div className="add-ons">
       <div className="add-on">
@@ -7,6 +13,7 @@ const Addons = () => {
           type="checkbox"
           name=""
           id="online-service"
+          onClick={(e) => handleClick(e, 0)}
         />
         <label className="option" htmlFor="online-service">
           <div className="custom-checkbox-container">
@@ -27,6 +34,7 @@ const Addons = () => {
           type="checkbox"
           name=""
           id="larger-storage"
+          onClick={(e) => handleClick(e, 1)}
         />
         <label className="option" htmlFor="larger-storage">
           <div className="custom-checkbox-container">
@@ -47,6 +55,7 @@ const Addons = () => {
           type="checkbox"
           name=""
           id="custom-profile"
+          onClick={(e) => handleClick(e, 2)}
         />
         <label className="option" htmlFor="custom-profile">
           <div className="custom-checkbox-container">
