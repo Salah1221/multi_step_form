@@ -48,7 +48,7 @@ input::placeholder {
   color: hsl(231, 6%, 43%);
 }
 
-label {
+form label {
   color: var(--marin-blue);
   margin-bottom: 7px;
   font-size: 14px;
@@ -185,6 +185,12 @@ h1 {
   cursor: pointer;
 }
 
+.back.inactive {
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+}
+
 .back:hover {
   color: var(--marin-blue);
 }
@@ -194,9 +200,10 @@ h1 {
 }
 
 .cards {
-  display: flex;
+  display: grid;
   gap: 20px;
   margin-bottom: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
 
 .card {
@@ -217,7 +224,7 @@ h1 {
 }
 
 .card:hover:not(.active) {
-  background-color: var(--hover-color);
+  border-color: var(--purplish-blue);
 }
 
 .content {
@@ -287,6 +294,11 @@ h1 {
 
 .switch.yearly {
   transform: translateX(0);
+  transition: transform 0.3s;
+}
+
+.add-on:not(:last-child) {
+  margin-bottom: 15px;
 }
 
 .checkbox {
@@ -296,7 +308,66 @@ h1 {
   width: 0;
 }
 
-.box {
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 7px;
+  border: 1px solid var(--light-gray);
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.option:hover:not(.checkbox:checked + .option:hover) {
+  border-color: var(--purplish-blue);
+}
+
+.checkbox:checked + .option {
+  border-color: var(--purplish-blue);
+  background-color: var(--hover-color);
+}
+
+.custom-checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.custom-checkbox {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--light-gray);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.checkbox:checked + .option .custom-checkbox {
+  background-color: var(--purplish-blue);
+  border-color: var(--purplish-blue);
+}
+
+.checkbox-label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.checkbox-label .title {
+  font-weight: 500;
+  color: var(--marin-blue);
+}
+
+.checkbox-label .sub-title {
+  font-size: 14px;
+  color: var(--cool-gray);
+}
+
+.addon-price {
+  font-size: 14px;
+  color: var(--purplish-blue);
 }
 
 @media (max-width: 950px) {
@@ -335,7 +406,7 @@ h1 {
 
 @media (max-width: 720px) {
   h1 {
-    font-size: 22px;
+    font-size: 24px;
   }
   body {
     align-items: flex-start;
@@ -344,13 +415,15 @@ h1 {
     margin-inline: 20px;
     border-radius: 10px;
     margin-top: 99px;
+    margin-bottom: 100px;
   }
   .container {
     width: 100%;
-    padding: 30px;
+    padding: 30px 20px;
   }
   .container p {
-    font-size: 15px;
+    font-size: 17px;
+    line-height: 1.5;
     margin-bottom: 20px;
   }
   .sidebar {
@@ -365,6 +438,7 @@ h1 {
     margin: 0;
   }
   .cards {
+    display: flex;
     flex-direction: column;
     gap: 15px;
   }
@@ -378,6 +452,19 @@ h1 {
   }
   .nav-btns {
     padding: 20px;
+  }
+  .option {
+    padding: 15px;
+  }
+  .custom-checkbox-container {
+    gap: 15px;
+  }
+  .checkbox-label .title {
+    font-size: 14px;
+  }
+  .checkbox-label .sub-title,
+  .addon-price {
+    font-size: 12px;
   }
 }
 

@@ -25,6 +25,8 @@ function App() {
       subhead: "Double-check everything looks OK before confirming.",
     },
   ];
+  const [isMonthly, setIsMonthly] = useState(true);
+  const [plan, setPlan] = useState(0);
 
   return (
     <div className="App">
@@ -34,12 +36,22 @@ function App() {
         <p>{heading[index].subhead}</p>
         <Routes>
           <Route path="/" element={<Info />} />
-          <Route path="/plan" element={<Plan />} />
+          <Route
+            path="/plan"
+            element={
+              <Plan
+                isMonthly={isMonthly}
+                setIsMonthly={setIsMonthly}
+                plan={plan}
+                setPlan={setPlan}
+              />
+            }
+          />
           <Route path="/addons" element={<Addons />} />
           <Route path="/summary" element={<Info />} />
         </Routes>
         <div className="nav-btns">
-          <a className="back">Go Back</a>
+          <a className={`back ${index ? "" : "inactive"}`}>Go Back</a>
           <a className="next">Next Step</a>
         </div>
       </div>
