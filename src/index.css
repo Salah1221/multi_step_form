@@ -8,7 +8,7 @@
   --light-gray: hsl(229, 24%, 87%);
   --magnolia: hsl(217, 100%, 97%);
   --alabaster: hsl(228, 100%, 99%);
-  --hover-color: #f8f9fe;
+  --hover-color: hsl(230, 75%, 98%);
 }
 
 *,
@@ -27,6 +27,7 @@ button,
 label {
   font: inherit;
   display: block;
+  color: var(--marin-blue);
 }
 
 input:not(.checkbox) {
@@ -178,6 +179,10 @@ h1 {
   cursor: pointer;
 }
 
+.confirm {
+  background-color: var(--purplish-blue);
+}
+
 .back {
   color: var(--cool-gray);
   font-weight: 500;
@@ -197,6 +202,10 @@ h1 {
 
 .next:hover {
   background-color: #174a8a;
+}
+
+.confirm:hover {
+  background-color: hsl(243 100% 62% / 0.7);
 }
 
 .cards {
@@ -367,6 +376,77 @@ h1 {
 
 .addon-price {
   font-size: 14px;
+  color: var(--purplish-blue);
+}
+
+.summary .cart {
+  background-color: var(--hover-color);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.summary .plan-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--light-gray);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.plan-container .name div {
+  font-weight: 500;
+  color: var(--marin-blue);
+}
+
+.plan-container .name a {
+  display: inline-block;
+  font-size: 14px;
+  text-decoration: underline;
+  color: var(--cool-gray);
+  transition: color 0.3s;
+  font-weight: 500;
+}
+
+.plan-container .name a:hover {
+  color: var(--purplish-blue);
+}
+
+.plan-price {
+  color: var(--marin-blue);
+  font-weight: 700;
+}
+
+.addon:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.addon {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--marin-blue);
+}
+
+.addon-name {
+  color: var(--cool-gray);
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.total :first-child {
+  font-size: 14px;
+  color: var(--cool-gray);
+}
+
+.total :last-child {
+  font-size: 20px;
+  font-weight: 700;
   color: var(--purplish-blue);
 }
 

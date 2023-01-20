@@ -4,9 +4,10 @@ import Addons from "./Addons";
 import Info from "./Info";
 import Plan from "./Plan";
 import Sidebar from "./Sidebar";
+import Summary from "./Summary";
 
 function App() {
-  const paths = ["/", "/plan", "/addons", "/summary"];
+  const paths = ["/", "/plan", "/addons", "/summary", "/thanks"];
   const [index, setIndex] = useState(paths.indexOf(window.location.pathname));
   const heading = [
     {
@@ -24,6 +25,10 @@ function App() {
     {
       header: "Finishing up",
       subhead: "Double-check everything looks OK before confirming.",
+    },
+    {
+      header: "",
+      subhead: "",
     },
   ];
   const [isMonthly, setIsMonthly] = useState(true);
@@ -51,13 +56,32 @@ function App() {
           />
           <Route
             path="/addons"
-            element={<Addons addons={addons} setAddons={setAddons} />}
+            element={
+              <Addons
+                addons={addons}
+                setAddons={setAddons}
+                isMonthly={isMonthly}
+              />
+            }
           />
-          <Route path="/summary" element={<Info />} />
+          <Route
+            path="/summary"
+            element={
+              <Summary
+                setIndex={setIndex}
+                addons={addons}
+                plan={plan}
+                isMonthly={isMonthly}
+              />
+            }
+          />
+          <Route path="/thanks" element={<Info />} />
         </Routes>
         <div className="nav-btns">
           <a className={`back ${index ? "" : "inactive"}`}>Go Back</a>
-          <a className="next">Next Step</a>
+          <a className={`next${index === 3 ? " confirm" : ""}`}>
+            {index !== 3 ? "Next Step" : "Confirm"}
+          </a>
         </div>
       </div>
     </div>

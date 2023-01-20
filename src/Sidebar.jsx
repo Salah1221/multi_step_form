@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 const Sidebar = ({ index, setIndex }) => {
   const stepName = ["Your Info", "Select Plan", "Add-ons", "Summary"];
   const paths = ["/", "/plan", "/addons", "/summary"];
-  const handleClick = (i) => setIndex(i);
 
   return (
     <div className="sidebar">
@@ -11,7 +10,8 @@ const Sidebar = ({ index, setIndex }) => {
         <Link
           to={paths[i]}
           className={index === i ? "active" : ""}
-          onClick={() => handleClick(i)}
+          onClick={() => setIndex(i)}
+          key={i}
         >
           <div className="nb">{i + 1}</div>
           <div className="text">
