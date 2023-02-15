@@ -1,14 +1,21 @@
 import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 import Addons from "./Addons";
 import Info from "./Info";
 import Plan from "./Plan";
 import Sidebar from "./Sidebar";
 import Summary from "./Summary";
+import Thanks from "./Thanks";
 
 function App() {
   const paths = ["/", "/plan", "/addons", "/summary", "/thanks"];
   const [index, setIndex] = useState(paths.indexOf(window.location.pathname));
+  const [isMonthly, setIsMonthly] = useState(true);
+  const [plan, setPlan] = useState(0);
+  const [addons, setAddons] = useState([false, false, false]);
+  const [input, setInput] = useState(["", "", ""]);
+  const [isNextPressed, setIsNextPressed] = useState(false);
+
   const heading = [
     {
       header: "Personal info",
@@ -31,18 +38,35 @@ function App() {
       subhead: "",
     },
   ];
-  const [isMonthly, setIsMonthly] = useState(true);
-  const [plan, setPlan] = useState(0);
-  const [addons, setAddons] = useState([false, false, false]);
+
+  const handleNextClick = (event) => {
+    setIsNextPressed(true);
+    if (!input[0] || !input[1] || !input[2]) {
+      event.preventDefault();
+    } else {
+      setIndex(index + 1);
+    }
+  };
 
   return (
     <div className="App">
-      <Sidebar index={index} setIndex={setIndex} />
+      <Sidebar index={index} />
       <div className="container">
-        <h1>{heading[index].header}</h1>
-        <p>{heading[index].subhead}</p>
+        <h1 className={index === 4 ? "disable" : ""}>
+          {heading[index].header}
+        </h1>
+        <p className={index === 4 ? "disable" : ""}>{heading[index].subhead}</p>
         <Routes>
-          <Route path="/" element={<Info />} />
+          <Route
+            path="/"
+            element={
+              <Info
+                isNextPressed={isNextPressed}
+                input={input}
+                setInput={setInput}
+              />
+            }
+          />
           <Route
             path="/plan"
             element={
@@ -51,6 +75,7 @@ function App() {
                 setIsMonthly={setIsMonthly}
                 plan={plan}
                 setPlan={setPlan}
+                setIsNextPressed={setIsNextPressed}
               />
             }
           />
@@ -75,13 +100,23 @@ function App() {
               />
             }
           />
-          <Route path="/thanks" element={<Info />} />
+          <Route path="/thanks" element={<Thanks />} />
         </Routes>
-        <div className="nav-btns">
-          <a className={`back ${index ? "" : "inactive"}`}>Go Back</a>
-          <a className={`next${index === 3 ? " confirm" : ""}`}>
+        <div className={`nav-btns${index === 4 ? " disable" : ""}`}>
+          <Link
+            to={paths[index - 1]}
+            className={`back ${index ? "" : "inactive"}`}
+            onClick={() => setIndex(index - 1)}
+          >
+            Go Back
+          </Link>
+          <Link
+            to={paths[index + 1]}
+            className={`next${index === 3 ? " confirm" : ""}`}
+            onClick={(e) => handleNextClick(e)}
+          >
             {index !== 3 ? "Next Step" : "Confirm"}
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -42,7 +42,7 @@ const Summary = ({ setIndex, addons, plan, isMonthly }) => {
               Change
             </Link>
           </div>
-          <div className="plan-price">{`+$${plans[plan].price}${
+          <div className="plan-price">{`$${plans[plan].price}${
             isMonthly ? "/mo" : "0/yr"
           }`}</div>
         </div>

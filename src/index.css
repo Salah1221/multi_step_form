@@ -30,7 +30,11 @@ label {
   color: var(--marin-blue);
 }
 
-input:not(.checkbox) {
+img {
+  display: block;
+}
+
+:where(input:not(.checkbox)) {
   width: 100%;
   font-weight: 500;
   border-radius: 7.5px;
@@ -45,7 +49,25 @@ input:focus {
   border: 1px solid var(--purplish-blue);
 }
 
-input::placeholder {
+.empty {
+  position: relative;
+}
+
+.empty::before {
+  content: "This field is required";
+  color: var(--strawberry-red);
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.empty > input {
+  border: 1px solid var(--strawberry-red);
+}
+
+::placeholder {
   color: hsl(231, 6%, 43%);
 }
 
@@ -102,7 +124,7 @@ h1 {
   background-image: url("./assets/images/bg-sidebar-desktop.svg");
 }
 
-.sidebar a {
+.sidebar .step-wrapper {
   color: white;
   text-transform: uppercase;
   display: flex;
@@ -145,13 +167,9 @@ h1 {
   letter-spacing: 1px;
 }
 
-.sidebar a:not(.active):hover .nb {
-  background-color: rgb(255 255 255 / 0.2);
-}
-
 .container {
   position: relative;
-  padding: 40px 85px 30px 100px;
+  padding: 40px 85px 40px 100px;
   width: 642px;
   background-color: white;
   border-radius: inherit;
@@ -377,6 +395,7 @@ h1 {
 .addon-price {
   font-size: 14px;
   color: var(--purplish-blue);
+  font-weight: 500;
 }
 
 .summary .cart {
@@ -450,6 +469,32 @@ h1 {
   color: var(--purplish-blue);
 }
 
+.disable {
+  display: none;
+}
+
+.thanks {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.thanks .wrapper {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+}
+
+.thanks img {
+  margin-bottom: 20px;
+}
+
+.thanks p {
+  text-align: center;
+  font-size: 16.5px;
+  line-height: 1.6;
+}
+
 @media (max-width: 950px) {
   .App {
     padding: 0;
@@ -501,6 +546,9 @@ h1 {
     width: 100%;
     padding: 30px 20px;
   }
+  .container:has(.thanks) {
+    padding-block: 70px;
+  }
   .container p {
     font-size: 17px;
     line-height: 1.5;
@@ -510,12 +558,12 @@ h1 {
     gap: 15px;
     padding-top: 30px;
   }
+  form div:last-child input {
+    margin: 0;
+  }
   input {
     border-radius: 5px;
     padding: 10px;
-  }
-  input:last-child {
-    margin: 0;
   }
   .cards {
     display: flex;
@@ -545,6 +593,10 @@ h1 {
   .checkbox-label .sub-title,
   .addon-price {
     font-size: 12px;
+  }
+
+  .thanks img {
+    width: 60px;
   }
 }
 

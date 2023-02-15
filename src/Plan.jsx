@@ -1,4 +1,6 @@
-const Plan = ({ isMonthly, setIsMonthly, plan, setPlan }) => {
+const Plan = ({ isMonthly, setIsMonthly, plan, setPlan, setIsNextPressed }) => {
+  setIsNextPressed(false);
+
   const handleClick = (e, key) => {
     setPlan(+key);
   };
