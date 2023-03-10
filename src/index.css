@@ -44,7 +44,7 @@ img {
   accent-color: var(--marin-blue);
 }
 
-input:focus {
+input:focus-visible {
   outline: 0;
   border: 1px solid var(--purplish-blue);
 }
@@ -211,7 +211,7 @@ h1 {
 .back.inactive {
   pointer-events: none;
   user-select: none;
-  opacity: 0;
+  visibility: hidden;
 }
 
 .back:hover {
