@@ -1,3 +1,5 @@
+import checkmark from "./assets/images/icon-checkmark.svg";
+
 const Addons = ({ addons, setAddons, isMonthly }) => {
   const handleClick = (e, key) => {
     let aux = addons;
@@ -19,7 +21,7 @@ const Addons = ({ addons, setAddons, isMonthly }) => {
         <label className="option" htmlFor="online-service">
           <div className="custom-checkbox-container">
             <div className="custom-checkbox">
-              <img src="src/assets/images/icon-checkmark.svg" alt="" />
+              <img src={checkmark} alt="" />
             </div>
             <div className="checkbox-label">
               <div className="title">Online service</div>
@@ -41,7 +43,7 @@ const Addons = ({ addons, setAddons, isMonthly }) => {
         <label className="option" htmlFor="larger-storage">
           <div className="custom-checkbox-container">
             <div className="custom-checkbox">
-              <img src="src/assets/images/icon-checkmark.svg" alt="" />
+              <img src={checkmark} alt="" />
             </div>
             <div className="checkbox-label">
               <div className="title">Larger storage</div>
@@ -63,7 +65,7 @@ const Addons = ({ addons, setAddons, isMonthly }) => {
         <label className="option" htmlFor="custom-profile">
           <div className="custom-checkbox-container">
             <div className="custom-checkbox">
-              <img src="src/assets/images/icon-checkmark.svg" alt="" />
+              <img src={checkmark} alt="" />
             </div>
             <div className="checkbox-label">
               <div className="title">Customizable profile</div>

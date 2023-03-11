@@ -1,3 +1,7 @@
+import icon_arcade from "./assets/images/icon-arcade.svg";
+import icon_advanced from "./assets/images/icon-advanced.svg";
+import icon_pro from "./assets/images/icon-pro.svg";
+
 const Plan = ({ isMonthly, setIsMonthly, plan, setPlan, setIsNextPressed }) => {
   setIsNextPressed(false);
 
@@ -14,7 +18,7 @@ const Plan = ({ isMonthly, setIsMonthly, plan, setPlan, setIsNextPressed }) => {
           onClick={(e) => handleClick(e, 0)}
         >
           <div className="img">
-            <img src="./src/assets/images/icon-arcade.svg" alt="" />
+            <img src={icon_arcade} alt="" />
           </div>
           <div className="content">
             <div className="plan-name">Arcade</div>
@@ -30,7 +34,7 @@ const Plan = ({ isMonthly, setIsMonthly, plan, setPlan, setIsNextPressed }) => {
           onClick={(e) => handleClick(e, 1)}
         >
           <div className="img">
-            <img src="./src/assets/images/icon-advanced.svg" alt="" />
+            <img src={icon_advanced} alt="" />
           </div>
           <div className="content">
             <div className="plan-name">Advanced</div>
@@ -46,7 +50,7 @@ const Plan = ({ isMonthly, setIsMonthly, plan, setPlan, setIsNextPressed }) => {
           onClick={(e) => handleClick(e, 2)}
         >
           <div className="img">
-            <img src="./src/assets/images/icon-pro.svg" alt="" />
+            <img src={icon_pro} alt="" />
           </div>
           <div className="content">
             <div className="plan-name">Pro</div>
