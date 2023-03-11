@@ -176,6 +176,8 @@ h1 {
   padding: 40px 85px 40px 100px;
   width: 642px;
   background-color: white;
+  height: auto;
+  transition: height 0.3s ease-out;
   border-radius: inherit;
 }
 

@@ -2,9 +2,7 @@ import icon_arcade from "./assets/images/icon-arcade.svg";
 import icon_advanced from "./assets/images/icon-advanced.svg";
 import icon_pro from "./assets/images/icon-pro.svg";
 
-const Plan = ({ isMonthly, setIsMonthly, plan, setPlan, setIsNextPressed }) => {
-  setIsNextPressed(false);
-
+const Plan = ({ isMonthly, setIsMonthly, plan, setPlan }) => {
   const handleClick = (e, key) => {
     setPlan(+key);
   };

@@ -98,7 +98,6 @@ function App() {
                   setIsMonthly={setIsMonthly}
                   plan={plan}
                   setPlan={setPlan}
-                  setIsNextPressed={setIsNextPressed}
                 />
               }
             />
