@@ -1,3 +1,5 @@
+import ProloadedImg from "./ProloadedImg";
+
 const Plan = ({
   isMonthly,
   setIsMonthly,
@@ -20,7 +22,7 @@ const Plan = ({
           onClick={(e) => handleClick(e, 0)}
         >
           <div className="img">
-            <img src={icon_arcade} alt="" />
+            <ProloadedImg src={icon_arcade} />
           </div>
           <div className="content">
             <div className="plan-name">Arcade</div>
@@ -36,7 +38,7 @@ const Plan = ({
           onClick={(e) => handleClick(e, 1)}
         >
           <div className="img">
-            <img src={icon_advanced} alt="" />
+            <ProloadedImg src={icon_advanced} />
           </div>
           <div className="content">
             <div className="plan-name">Advanced</div>
@@ -52,7 +54,7 @@ const Plan = ({
           onClick={(e) => handleClick(e, 2)}
         >
           <div className="img">
-            <img src={icon_pro} alt="" />
+            <ProloadedImg src={icon_pro} />
           </div>
           <div className="content">
             <div className="plan-name">Pro</div>

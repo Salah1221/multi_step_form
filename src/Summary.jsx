@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Summary = ({ setIndex, addons, plan, isMonthly, setDirection }) => {
+const Summary = ({ addons, plan, isMonthly, setDirection }) => {
   const plans = [
     {
       name: "Arcade",

@@ -132,7 +132,6 @@ function App() {
               path="/summary"
               element={
                 <Summary
-                  setIndex={setIndex}
                   addons={addons}
                   plan={plan}
                   isMonthly={isMonthly}
