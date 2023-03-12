@@ -21,6 +21,7 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 ::selection {
@@ -383,11 +384,46 @@ h1 {
   border-radius: 4px;
   border: 1px solid var(--light-gray);
   transition: background-color 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .checkbox:checked + .option .custom-checkbox {
-  background-color: var(--purplish-blue);
   border-color: var(--purplish-blue);
+}
+
+.custom-checkbox::after,
+.custom-checkbox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: center center;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  transition: scale 0.3s ease-out;
+  width: 100%;
+}
+
+.custom-checkbox::after {
+  background-color: var(--purplish-blue);
+  scale: 0;
+  z-index: -2;
+}
+
+.custom-checkbox::before {
+  z-index: -1;
+  scale: 2;
+  background-color: white;
+}
+
+.checkbox:checked + .option .custom-checkbox::after {
+  scale: 2;
+}
+
+.checkbox:checked + .option .custom-checkbox::before {
+  scale: 0;
 }
 
 .checkbox-label {
@@ -550,7 +586,7 @@ h1 {
     transform: translate(0px, 0px);
   }
   to {
-    transform: translate(0, calc(-1 * var(--translation-length)));
+    transform: translate(0, var(--translation-length));
     opacity: 0;
   }
 }
@@ -574,6 +610,34 @@ h1 {
   to {
     transform: translate(calc(-1 * var(--translation-length)), 0);
     opacity: 0;
+  }
+}
+
+.outer-circle {
+  transform-origin: center center;
+  scale: 0;
+  animation: 0.4s expand forwards;
+  overflow: hidden;
+}
+
+.shadow {
+  fill: transparent;
+  animation: 1s shiftColor forwards;
+  animation-delay: 0.4s;
+}
+
+@keyframes expand {
+  to {
+    scale: 1;
+  }
+}
+
+@keyframes shiftColor {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: #e96170;
   }
 }
 
@@ -683,6 +747,13 @@ h1 {
   .thanks svg {
     width: 60px;
     margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
