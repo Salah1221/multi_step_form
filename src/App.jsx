@@ -13,7 +13,6 @@ import checkmark from "./assets/images/icon-checkmark.svg";
 import thank_you from "./assets/images/icon-thank-you.svg";
 
 function App() {
-  const assets = [icon_arcade, icon_advanced, icon_pro, checkmark, thank_you];
   const paths = ["/", "/plan", "/addons", "/summary", "/thanks"];
   const [isMonthly, setIsMonthly] = useState(true);
   const [plan, setPlan] = useState(0);
@@ -60,10 +59,6 @@ function App() {
   useEffect(() => {
     if (location !== displayLocation) setTransitionStage("fadeOut");
   }, [location, displayLocation]);
-
-  useEffect(() => {
-    assets.forEach((img) => (new Image().src = img.fileName));
-  }, []);
 
   return (
     <div className="App">
