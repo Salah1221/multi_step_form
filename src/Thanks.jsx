@@ -1,6 +1,4 @@
-import thank_you from "./assets/images/icon-thank-you.svg";
-
-const Thanks = () => {
+const Thanks = ({ thank_you }) => {
   return (
     <div className="thanks">
       <div className="wrapper">

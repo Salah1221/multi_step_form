@@ -1,8 +1,12 @@
-import icon_arcade from "./assets/images/icon-arcade.svg";
-import icon_advanced from "./assets/images/icon-advanced.svg";
-import icon_pro from "./assets/images/icon-pro.svg";
-
-const Plan = ({ isMonthly, setIsMonthly, plan, setPlan }) => {
+const Plan = ({
+  isMonthly,
+  setIsMonthly,
+  plan,
+  setPlan,
+  icon_arcade,
+  icon_advanced,
+  icon_pro,
+}) => {
   const handleClick = (e, key) => {
     setPlan(+key);
   };

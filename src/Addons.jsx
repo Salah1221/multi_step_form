@@ -1,6 +1,4 @@
-import checkmark from "./assets/images/icon-checkmark.svg";
-
-const Addons = ({ addons, setAddons, isMonthly }) => {
+const Addons = ({ addons, setAddons, isMonthly, checkmark }) => {
   const handleClick = (e, key) => {
     let aux = addons;
     aux[key] = !aux[key];

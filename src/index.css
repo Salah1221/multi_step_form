@@ -23,12 +23,21 @@
   padding: 0;
 }
 
+::selection {
+  background-color: var(--purplish-blue);
+  color: white;
+}
+
 input:not(.checkbox),
 button,
 label {
   font: inherit;
   display: block;
   color: var(--marin-blue);
+}
+
+input {
+  caret-color: var(--purplish-blue);
 }
 
 img {

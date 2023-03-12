@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Summary = ({ setIndex, addons, plan, isMonthly }) => {
+const Summary = ({ setIndex, addons, plan, isMonthly, setDirection }) => {
   const plans = [
     {
       name: "Arcade",
@@ -38,7 +38,7 @@ const Summary = ({ setIndex, addons, plan, isMonthly }) => {
             <div>
               {plans[plan].name} ({isMonthly ? "Monthly" : "Yearly"})
             </div>
-            <Link to="/plan" onClick={() => setIndex(1)}>
+            <Link to="/plan" onClick={() => setDirection("change plan")}>
               Change
             </Link>
           </div>
