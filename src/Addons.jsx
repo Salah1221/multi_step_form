@@ -1,4 +1,4 @@
-const Addons = ({ addons, setAddons, isMonthly, checkmark }) => {
+const Addons = ({ addons, setAddons, isMonthly }) => {
   const handleClick = (e, key) => {
     let aux = addons;
     aux[key] = !aux[key];
@@ -19,7 +19,19 @@ const Addons = ({ addons, setAddons, isMonthly, checkmark }) => {
         <label className="option" htmlFor="online-service">
           <div className="custom-checkbox-container">
             <div className="custom-checkbox">
-              <img src={checkmark} alt="" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="9"
+                viewBox="0 0 12 9"
+              >
+                <path
+                  fill="none"
+                  stroke="#FFF"
+                  stroke-width="2"
+                  d="m1 4 3.433 3.433L10.866 1"
+                />
+              </svg>
             </div>
             <div className="checkbox-label">
               <div className="title">Online service</div>
@@ -41,7 +53,19 @@ const Addons = ({ addons, setAddons, isMonthly, checkmark }) => {
         <label className="option" htmlFor="larger-storage">
           <div className="custom-checkbox-container">
             <div className="custom-checkbox">
-              <img src={checkmark} alt="" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="9"
+                viewBox="0 0 12 9"
+              >
+                <path
+                  fill="none"
+                  stroke="#FFF"
+                  stroke-width="2"
+                  d="m1 4 3.433 3.433L10.866 1"
+                />
+              </svg>
             </div>
             <div className="checkbox-label">
               <div className="title">Larger storage</div>
@@ -63,7 +87,19 @@ const Addons = ({ addons, setAddons, isMonthly, checkmark }) => {
         <label className="option" htmlFor="custom-profile">
           <div className="custom-checkbox-container">
             <div className="custom-checkbox">
-              <img src={checkmark} alt="" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="9"
+                viewBox="0 0 12 9"
+              >
+                <path
+                  fill="none"
+                  stroke="#FFF"
+                  stroke-width="2"
+                  d="m1 4 3.433 3.433L10.866 1"
+                />
+              </svg>
             </div>
             <div className="checkbox-label">
               <div className="title">Customizable profile</div>

@@ -6,11 +6,6 @@ import Plan from "./Plan";
 import Sidebar from "./Sidebar";
 import Summary from "./Summary";
 import Thanks from "./Thanks";
-import icon_arcade from "./assets/images/icon-arcade.svg";
-import icon_advanced from "./assets/images/icon-advanced.svg";
-import icon_pro from "./assets/images/icon-pro.svg";
-import checkmark from "./assets/images/icon-checkmark.svg";
-import thank_you from "./assets/images/icon-thank-you.svg";
 
 function App() {
   const paths = ["/", "/plan", "/addons", "/summary", "/thanks"];
@@ -111,9 +106,6 @@ function App() {
                   setIsMonthly={setIsMonthly}
                   plan={plan}
                   setPlan={setPlan}
-                  icon_arcade={icon_arcade}
-                  icon_advanced={icon_advanced}
-                  icon_pro={icon_pro}
                 />
               }
             />
@@ -124,7 +116,6 @@ function App() {
                   addons={addons}
                   setAddons={setAddons}
                   isMonthly={isMonthly}
-                  checkmark={checkmark}
                 />
               }
             />
@@ -139,7 +130,7 @@ function App() {
                 />
               }
             />
-            <Route path="/thanks" element={<Thanks thank_you={thank_you} />} />
+            <Route path="/thanks" element={<Thanks />} />
           </Routes>
         </div>
         <div className={`nav-btns${index === 4 ? " disable" : ""}`}>

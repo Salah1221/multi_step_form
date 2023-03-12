@@ -40,7 +40,7 @@ input {
   caret-color: var(--purplish-blue);
 }
 
-img {
+svg {
   display: block;
 }
 
@@ -499,7 +499,7 @@ h1 {
   gap: 10px;
 }
 
-.thanks img {
+.thanks svg {
   margin-bottom: 20px;
 }
 
@@ -680,8 +680,9 @@ h1 {
     font-size: 12px;
   }
 
-  .thanks img {
+  .thanks svg {
     width: 60px;
+    margin: 0;
   }
 }
 
