@@ -1,10 +1,8 @@
-import ProloadedImg from "./ProloadedImg";
-
 const Thanks = ({ thank_you }) => {
   return (
     <div className="thanks">
       <div className="wrapper">
-        <ProloadedImg src={thank_you} />
+        <img src={thank_you} alt="" />
         <h1>Thank you!</h1>
         <p>
           Thanks for confirming your subscription! We hope you have fun using

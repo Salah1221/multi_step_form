@@ -1,5 +1,3 @@
-import ProloadedImg from "./ProloadedImg";
-
 const Addons = ({ addons, setAddons, isMonthly, checkmark }) => {
   const handleClick = (e, key) => {
     let aux = addons;
@@ -21,7 +19,7 @@ const Addons = ({ addons, setAddons, isMonthly, checkmark }) => {
         <label className="option" htmlFor="online-service">
           <div className="custom-checkbox-container">
             <div className="custom-checkbox">
-              <ProloadedImg src={checkmark} />
+              <img src={checkmark} alt="" />
             </div>
             <div className="checkbox-label">
               <div className="title">Online service</div>
@@ -43,7 +41,7 @@ const Addons = ({ addons, setAddons, isMonthly, checkmark }) => {
         <label className="option" htmlFor="larger-storage">
           <div className="custom-checkbox-container">
             <div className="custom-checkbox">
-              <ProloadedImg src={checkmark} />
+              <img src={checkmark} alt="" />
             </div>
             <div className="checkbox-label">
               <div className="title">Larger storage</div>
@@ -65,7 +63,7 @@ const Addons = ({ addons, setAddons, isMonthly, checkmark }) => {
         <label className="option" htmlFor="custom-profile">
           <div className="custom-checkbox-container">
             <div className="custom-checkbox">
-              <ProloadedImg src={checkmark} />
+              <img src={checkmark} alt="" />
             </div>
             <div className="checkbox-label">
               <div className="title">Customizable profile</div>
