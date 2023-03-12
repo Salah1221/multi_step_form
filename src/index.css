@@ -9,6 +9,7 @@
   --magnolia: hsl(217, 100%, 97%);
   --alabaster: hsl(228, 100%, 99%);
   --hover-color: hsl(230, 75%, 98%);
+  --translation-length: 20px;
 }
 
 *,
@@ -176,8 +177,6 @@ h1 {
   padding: 40px 85px 40px 100px;
   width: 642px;
   background-color: white;
-  height: auto;
-  transition: height 0.3s ease-out;
   border-radius: inherit;
 }
 
@@ -509,10 +508,26 @@ h1 {
   animation: 0.5s fadeOut forwards;
 }
 
+.fadeInText {
+  animation: 0.5s fadeInText forwards ease-out;
+}
+
+.fadeOutText {
+  animation: 0.5s fadeOutText forwards ease-out;
+}
+
+.delayed {
+  animation-delay: 0.2s;
+}
+
+.transparent {
+  opacity: 0;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translate(0, -20px);
+    transform: translate(0, var(--translation-length));
   }
   to {
     opacity: 1;
@@ -526,7 +541,29 @@ h1 {
     transform: translate(0px, 0px);
   }
   to {
-    transform: translate(0, 20px);
+    transform: translate(0, calc(-1 * var(--translation-length)));
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translate(calc(-1 * var(--translation-length)), 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes fadeOutText {
+  from {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  to {
+    transform: translate(calc(-1 * var(--translation-length)), 0);
     opacity: 0;
   }
 }
@@ -566,6 +603,9 @@ h1 {
 }
 
 @media (max-width: 720px) {
+  :root {
+    --translation-length: 7px;
+  }
   h1 {
     font-size: 24px;
   }

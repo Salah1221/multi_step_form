@@ -59,10 +59,16 @@ function App() {
     <div className="App">
       <Sidebar index={index} />
       <div className="container">
-        <h1 className={`${transitionStage} ${index === 4 ? "disable" : ""}`}>
+        <h1
+          className={`${transitionStage}Text ${index === 4 ? "disable" : ""}`}
+        >
           {heading[index].header}
         </h1>
-        <p className={`${transitionStage} ${index === 4 ? "disable" : ""}`}>
+        <p
+          className={`${transitionStage}Text delayed ${
+            transitionStage === "fadeIn" ? "transparent" : ""
+          } ${index === 4 ? "disable" : ""}`}
+        >
           {heading[index].subhead}
         </p>
         <div
